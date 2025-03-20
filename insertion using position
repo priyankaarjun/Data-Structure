@@ -1,0 +1,50 @@
+import java.util.*;
+class Node{
+    int roll;
+    Node next;
+ }
+class Main{
+    public static void insert(Node head,int pos)
+    {
+        int c=0;
+        Node p=head;
+        while(c<(pos-1) && p.next!=null)
+        {
+            c++;
+            p=p.next;
+        }
+        if(c==(pos-1))
+        {
+            Node ob=new Node();
+            Scanner sc=new Scanner(System.in);
+            ob.roll=sc.nextInt();
+            ob.next=p.next;
+            p.next=ob;
+        }
+        else
+        {
+            System.out.println("pos exceeds length");
+        }
+
+    }
+
+    public static void display(Node head)
+    {
+        Node t = head.next;
+        while(t!=null){
+            System.out.println(t.roll);
+            t=t.next;
+        }
+    }
+    public static void main(String args[])
+    {
+        Node head = new Node();
+        head.next = null;
+        insert(head,1);
+        insert(head,2);
+        insert(head,3);
+        insert(head,4);
+        insert(head,6);
+        display(head);
+    }
+}
