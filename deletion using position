@@ -1,0 +1,70 @@
+import java.util.*;
+class Node{
+    int n;
+    Node next;
+ }
+class Main
+{
+    public static void insert(Node head,int pos)
+    {
+        int c=0;
+        Node p=head;
+        while(c<(pos-1) && p.next!=null)
+        {
+            c++;
+            p=p.next;
+        }
+        if(c==(pos-1))
+        {
+            Node ob=new Node();
+            Scanner sc=new Scanner(System.in);
+            ob.n=sc.nextInt();
+            ob.next=p.next;
+            p.next=ob;
+        }
+        else
+        {
+            System.out.println("pos exceeds length");
+        }
+
+    }
+    public static void delete(Node head)
+    {
+        Scanner sc = new Scanner(System.in);
+        int pos = sc.nextInt();
+        int c = 0;
+        Node p = head;
+        while(c<(pos-1) && p.next!=null){
+            c++;
+            p = p.next;
+        }
+        if(c == (pos-1))
+        {
+            p.next = p.next.next;
+        }
+        else{
+            System.out.println("pos exceeds length");
+        }
+    }
+
+    public static void display(Node head)
+    {
+        Node t = head.next;
+        while(t!=null){
+            System.out.println(t.n);
+            t=t.next;
+        }
+    }
+    public static void main(String args[])
+    {
+        Node head = new Node();
+        head.next = null;
+        insert(head,1);
+        insert(head,2);
+        insert(head,3);
+        insert(head,4);
+        insert(head,5);
+        display(head);
+        display(head);
+    }
+}
