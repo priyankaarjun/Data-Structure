@@ -1,0 +1,40 @@
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+}
+class Main{
+    public static void insert(Node head){
+        Node ob = new Node();
+        Scanner sc = new Scanner(System.in);
+        ob.data = sc.nextInt();
+        Node last = head;
+        while(last.next!=null)
+        {
+            last = last.next;
+        }
+        last.next = ob;
+        ob.next = null;
+    }
+    
+    public static void display(Node head){
+        Node t = head.next;
+        while(t!=null)
+        {
+            System.out.print(t.data+" ");
+            t = t.next;
+        }
+    }
+    public static void main(String args[])
+    {
+        Node head = new Node();
+        head.next = null;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            insert(head);
+        }
+        display(head);
+    }
+}
