@@ -1,0 +1,57 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node next;
+}
+
+class Main {
+
+    public static void insert(Node head) {
+        Scanner sc = new Scanner(System.in);
+        int pos = sc.nextInt();  
+        int c = 0;
+        Node p = head;
+    
+        while (c < (pos - 1) && p.next != null) {
+            p = p.next;
+            c++;
+        }
+        
+        if (c == (pos - 1)) {
+            Node ob = new Node();
+            ob.data = sc.nextInt(); 
+            ob.next = p.next;  
+            p.next = ob;  
+        } else {
+            System.out.println("Pos exceeds length");
+        }
+    }
+
+    public static void display(Node head) {
+        Node t = head.next;  
+        int index = 0;
+        while (t != null) {
+            if (index % 2 == 0) {  
+                System.out.print(t.data + " ");
+            }
+            t = t.next;
+            index++;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node();
+        head.next = null; 
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            insert(head);
+        }
+
+        display(head);
+    }
+}
