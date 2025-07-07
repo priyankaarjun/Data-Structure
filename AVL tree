@@ -1,0 +1,69 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    Node(int a) {
+        data = a;
+        left = right = null;
+    }
+}
+
+public class Main {
+    Node root = null;
+
+    void start() {
+        root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.right = new Node(6);
+    }
+
+    void preorder(Node a) {
+        if (a == null){
+            return;
+        } 
+        System.out.print(a.data + " ");
+        preorder(a.left);
+        preorder(a.right);
+    }
+
+    void inorder(Node a) {
+        if (a == null){ 
+            return;
+        }
+        inorder(a.left);
+        System.out.print(a.data + " ");
+        inorder(a.right);
+    }
+
+    void postorder(Node a) {
+        if (a == null){ 
+            return;
+        }
+        postorder(a.left);
+        postorder(a.right);
+        System.out.print(a.data + " ");
+    }
+
+    public static void main(String args[]) {
+        Main ob = new Main();
+        ob.start();
+
+        System.out.print("Preorder: ");
+        ob.preorder(ob.root);
+        System.out.println();
+
+        System.out.print("Inorder: ");
+        ob.inorder(ob.root);
+        System.out.println();
+
+        System.out.print("Postorder: ");
+        ob.postorder(ob.root);
+        System.out.println();
+    }
+}
