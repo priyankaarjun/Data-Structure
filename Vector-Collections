@@ -1,0 +1,22 @@
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Vector<Integer> l = new Vector<>();
+        l.add(5);
+        l.add(10);
+        l.add(15);
+        l.add(20);  
+        System.out.println("Vector: " + l);       
+        System.out.println("Size: " + l.size());    
+        l.addFirst(2);
+        l.addLast(7);
+        System.out.println("New List:"+l);
+        System.out.println(l.contains(7));
+        l.remove(3);
+        l.removeFirst();
+        l.removeLast();
+        System.out.println("After Remove:"+l);
+        l.clear();
+        System.out.println("Elements all Clear:"+l);
+    }
+}
